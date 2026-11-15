@@ -1,57 +1,15 @@
-Registro de estudiantes en Java
+# Registro de estudiantes - Actividad 3: Herencia
 
-Aplicación de consola muy sencilla para practicar programación orientada a objetos. El programa crea tres estudiantes, muestra sus datos, consulta sus calificaciones y determina si aprobaron.
+Esta actividad amplía el proyecto de la Actividad 2. Se conserva la clase `Estudiante` y se agregan dos clases que heredan de ella: `EstudianteBecado` y `EstudianteDeportista`.
 
-Objetivo
+## ¿Qué hace el programa?
 
-Practicar estos conceptos:
+Crea tres objetos: un estudiante, un estudiante becado y un estudiante deportista. Muestra sus datos, consulta sus calificaciones y determina si aprobaron. También calcula el monto de una beca y muestra una acción propia del estudiante deportista.
 
-* Clase: Estudiante, que sirve como molde para crear estudiantes.
-* Atributos: nombre, matricula y calificacion.
-* Constructor: Estudiante(...), que inicializa los atributos de cada objeto.
-* Instanciación: creación de objetos con new Estudiante(...).
-* Métodos: mostrarDatos(), obtenerCalificacion() y estaAprobado().
-* Programa principal: Main, donde se crean y utilizan los objetos.
+## Conceptos que se practican
 
-La calificación mínima para aprobar en este ejemplo es 70.
-
-Archivos del proyecto
-
-registro-estudiantes/
-Estudiante.java  # Define la clase y sus métodos
-Main.java        # Crea los objetos y ejecuta el programa
-README.md        # Explica el proyecto
-
-Requisitos
-
-* JDK (Java Development Kit) instalado.
-* Un editor o IDE IntelliJ IDEA
-El proyecto no necesita bases de datos ni bibliotecas externas.
-
-Ejemplo de salida
-
- === REGISTRO DE ESTUDIANTES ===
-
-Nombre: Chstantino Arenas
-Matricula: A001
-Calificacion: 92.0
-Estado: APROBADO
-
-Nombre: Gustavo Valdez
-Matricula: A002
-Calificacion: 65.0
-Estado: NO APROBADO
-
-Nombre: José García
-Matricula: A003
-Calificacion: 78.0
-Estado: APROBADO
-
-¿Cómo agregar otro estudiante?
-
-En Main.java, crea otro objeto con el constructor y agrégalo al arreglo estudiantes. Por ejemplo:
-
-Estudiante estudiante4 = new Estudiante("Carlos Ruiz", "A004", 85);
-Estudiante[] estudiantes = {
-estudiante1, estudiante2, estudiante3, estudiante4
-};
+- **Clase base:** `Estudiante` contiene los datos y métodos que comparten los estudiantes.
+- **Herencia:** `EstudianteBecado` y `EstudianteDeportista` usan `extends Estudiante` para heredar de la clase base.
+- **Reutilización:** las clases derivadas usan el constructor de la clase base mediante `super(...)` y aprovechan métodos como `obtenerCalificacion()` y `estaAprobado()`.
+- **Sobrescritura:** las dos clases derivadas redefinen `mostrarDatos()` con `@Override`. Al llamar `super.mostrarDatos()` conservan la información general y agregan sus propios datos.
+- **Métodos propios:** `calcularMontoBeca()` pertenece a `EstudianteBecado` y `entrenar()` pertenece a `EstudianteDeportista`.
