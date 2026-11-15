@@ -1,32 +1,36 @@
-/**
- *Actividad 2 - Programa sencillo
- **/
 public class Main {
     public static void main(String[] args) {
-        // Instanciación: aquí creo los tres objetos (estudiantes)
-        Estudiante estudiante1 = new Estudiante("Constantino Arenas", "A001", 92);
-        Estudiante estudiante2 = new Estudiante("Gustavo Valdes", "A002", 65);
-        Estudiante estudiante3 = new Estudiante("José García", "A003", 78);
+        // Creo un estudiante normal y dos estudiantes de las clases derivadas.
+        Estudiante estudiante = new Estudiante("Constantino Arenas", "A001", 92);
+        EstudianteBecado becado = new EstudianteBecado(
+                "AlumnoBECA", "A002", 85, 30);
+        EstudianteDeportista deportista = new EstudianteDeportista(
+                "AlumnoDEPORTIVA", "A003", 78, "Natacion");
 
-        // Guardo las referencias para recorrer entre los objetos definidos anteriormente
-        Estudiante[] estudiantes = {estudiante1, estudiante2, estudiante3};
+        System.out.println("=== ESTUDIANTE ===");
+        estudiante.mostrarDatos();
+        mostrarEstadoAcademico(estudiante);
 
-        System.out.println("=== REGISTRO DE ESTUDIANTES ===");
+        System.out.println("\n=== ESTUDIANTE BECADO ===");
+        becado.mostrarDatos();
+        mostrarEstadoAcademico(becado);
+        System.out.println("Monto de la beca sobre una colegiatura de $5000: $"
+                + becado.calcularMontoBeca(5000));
 
-        //Se recorre el arreglo anterior y llama a los métodos de cada objeto.
-        for (Estudiante estudiante : estudiantes) {
-            System.out.println("------------------------------");
-            estudiante.mostrarDatos();
-            System.out.println("Calificacion: " + estudiante.obtenerCalificacion());
+        System.out.println("\n=== ESTUDIANTE DEPORTISTA ===");
+        deportista.mostrarDatos();
+        mostrarEstadoAcademico(deportista);
+        deportista.entrenar();
+    }
 
-            // El método estaAprobado() devuelve true o false, si el estudiante aprobó o no.
-            if (estudiante.estaAprobado()) {
-                System.out.println("Estado: APROBADO");
-            } else {
-                System.out.println("Estado: NO APROBADO");
-            }
+    // Este método evita repetir la misma comprobación para cada estudiante.
+    private static void mostrarEstadoAcademico(Estudiante estudiante) {
+        System.out.println("Calificacion: " + estudiante.obtenerCalificacion());
+
+        if (estudiante.estaAprobado()) {
+            System.out.println("Estado: APROBADO");
+        } else {
+            System.out.println("Estado: NO APROBADO");
         }
-
-        System.out.println("------------------------------");
     }
 }

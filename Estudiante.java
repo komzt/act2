@@ -1,34 +1,25 @@
-/**
- * Representa a un estudiante y guarda sus datos básicos que me sirven para este ejercicio
- */
+// Esta clase guarda los datos que tienen en común todos los estudiantes.
 public class Estudiante {
-    // Atributos: datos que tendrá cada objeto Estudiante.
     private String nombre;
     private String matricula;
     private double calificacion;
 
-    /**
-     * Constructor: se ejecuta al crear un estudiante nuevo.
-     * Recibe los datos iniciales y los guarda en los atributos.
-     */
+    // El constructor recibe los datos básicos para registrar al estudiante.
     public Estudiante(String nombre, String matricula, double calificacion) {
-        this.nombre = nombre;       // this.nombre es el atributo del objeto.
-        this.matricula = matricula; // El parámetro aporta el valor inicial.
+        this.nombre = nombre;
+        this.matricula = matricula;
         this.calificacion = calificacion;
     }
 
-    /** Muestra en pantalla el nombre y la matrícula del estudiante. */
     public void mostrarDatos() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Matricula: " + matricula);
     }
 
-    /** Devuelve la calificación guardada en el objeto. */
     public double obtenerCalificacion() {
         return calificacion;
     }
 
-    /** Devuelve true si la calificación es de 70 o más; de lo contrario, false. */
     public boolean estaAprobado() {
         return calificacion >= 70;
     }
